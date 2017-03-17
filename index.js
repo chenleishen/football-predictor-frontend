@@ -1,13 +1,15 @@
 var controllers = require('./controllers');
 var directives = require('./directives');
 var services = require('./services');
+global.jQuery = require('jquery');
+var boostrap = require('bootstrap');
 
 var components = angular.module('football_predictor.components', ['ng']);
 
 // _.each(controllers, function(controller, name) {
 //   components.controller(name, controller);
 // });
-
+ 
 // _.each(directives, function(directive, name) {
 //   components.directive(name, directive);
 // });
@@ -28,7 +30,7 @@ for (name in services) {
 	components.factory(name, services[name]);
 }
 
-var app = angular.module('football_predictor', ['football_predictor.components', 'ngRoute']);
+var app = angular.module('football_predictor', ['football_predictor.components', 'ngRoute', require('angular-drag-drop')]);
 
 // app.config(function($routeProvider) {
 //   $routeProvider.
@@ -39,3 +41,10 @@ var app = angular.module('football_predictor', ['football_predictor.components',
 //       template: '<product-details></product-details>'
 //     });
 // });
+
+app.config(function($routeProvider) {
+  $routeProvider.
+    when('/', {
+      templateUrl: '/templates/main.html'
+    });
+});

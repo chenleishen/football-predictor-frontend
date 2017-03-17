@@ -9,5 +9,5 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['*.js'], ['browserify']);
+  gulp.watch(['*.js','./templates/*.html'], ['browserify']);
 });

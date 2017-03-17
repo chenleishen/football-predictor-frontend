@@ -1,11 +1,13 @@
-exports.NavBarController = function($scope, $user) {
-  $scope.user = "chenlei";
+exports.NavBarController = function($scope) {
+	console.log("this is nav bar controller");
+  // $scope.user = "chenlei";
 
-  setTimeout(function() {
-    $scope.$emit('NavBarController');
-  }, 0);
+  // setTimeout(function() {
+  //   $scope.$emit('NavBarController');
+  // }, 0);
 };
 
-exports.SayHello = function () {
-	console.log('Hello World');
+exports.DragAndDropController = function ($scope) {
+	console.log("this is drag and drop controller");
+
 }

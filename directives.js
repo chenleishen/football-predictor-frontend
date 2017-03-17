@@ -6,9 +6,9 @@ exports.navBar = function() {
   };
 };
 
-// exports.productDetails = function() {
-//   return {
-//     controller: 'ProductDetailsController',
-//     templateUrl: '/A-examples/templates/product_details.html'
-//   };
-// };
+exports.dragAndDrop = function() {
+  return {
+    controller: 'DragAndDropController',
+    templateUrl: '/templates/drag_and_drop.html'
+  };
+};  
