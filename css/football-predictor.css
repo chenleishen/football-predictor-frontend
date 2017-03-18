@@ -19,8 +19,8 @@ body {
 .nav-bar {
   width: 100%;
   position: relative;
-  background-color: #F9F9F9;
-  border-bottom: 1px solid #bdbdbd;
+  /*background-color: #F9F9F9;*/
+  /*border-bottom: 1px solid #bdbdbd;*/
 }
 
 .nav-bar-contents {
@@ -28,7 +28,7 @@ body {
   margin: auto;
   position: relative;
 }
-
+/*
 .nav-bar .logo {
   display: inline-block;
 }
@@ -37,17 +37,28 @@ body {
   width: 30px;
   height: 30px;
   margin-top: 5px;
-}
+}*/
 
 .nav-bar .title {
-  display: inline-block;
-  color: #CC4A14;
+  /*display: inline-block;*/
   font-size: 30px;
-  position: relative;
-  top: -3px;
+/*  position: center;*/
+  padding-top: 100px;
+  padding-bottom: 30px;
+  text-align: center;
 }
 
-.nav-bar .checkout {
+#football {
+  color: #514A9D;
+  font-weight: bold;
+}
+
+#scorePredicator {
+  color: #3E3E3E;
+  font-weight: lighter;
+}
+
+/*.nav-bar .checkout {
   position: absolute;
   font-size: 20px;
   right: 42px;
@@ -59,7 +70,7 @@ body {
 
 .nav-bar .checkout a {
   color: white;
-}
+}*/
 
 .nav-bar .user-info {
   position: absolute;
@@ -79,6 +90,17 @@ body {
   border-radius: 5px;
 }
 
+/*other stuff*/
 .center-block {
   float:none
+}
+
+/*#00366D*/
+
+.grad {
+  background: #514A9D; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient( #514A9D, #24C6DC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#514A9D, #24C6DC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient( #514A9D, #24C6DC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient( #514A9D, #24C6DC); /* Standard syntax */
 }
