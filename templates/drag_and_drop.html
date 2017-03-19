@@ -4,7 +4,7 @@
 			<div id="team1" 
 			     class="team center-block"
 			     drop-container
-			     drop-accepts="($dragData!=team1.img) && ($dragData!=team2.img)"
+			     drop-accepts="($dragData.name!=team1.name) && ($dragData.name!=team2.name)"
 			     on-drag-enter="appendTeam1($dragData)"> 
 				+
 			</div>
@@ -16,7 +16,7 @@
 			<div id="team2" 
 			     class="team center-block"
 			     drop-container
-			     drop-accepts="($dragData!=team1.img) && ($dragData!=team2.img)"
+			     drop-accepts="($dragData.name!=team1.name) && ($dragData.name!=team2.name)"
 			     on-drag-enter="appendTeam2($dragData)">
 				+
 			</div>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="col-md-6 center-block">
-	<choose-player></choose-player>
+	<choose-players></choose-players>
 </div>
 
 <div class="col-md-6 center-block" ng-show="team1.filled && team2.filled" style="text-align: center;">
@@ -38,7 +38,7 @@
 	<div class="col-md-10 center-block">
 		<div class="col-md-5ths" ng-repeat="(name,icon) in team_icons">
 		<div drag-container="true"
-  				 drag-data="icon">
+  				 drag-data="{team_name: name, team_img: icon}">
 		<!-- <div drag-container="true"
   				 drag-data="model"
   				 ng-style="{'background-image': 'url(/icons/{{icon}})'}"> -->
@@ -47,8 +47,6 @@
 			     ng-src="/icons/{{icon}}" 
 			     style="max-width: 100px; max-height: 100px; margin-bottom: 20px;"
 			     >
-                 <!-- on-drag-start="ctl.handleDragStart($event, $dragData)"
-                 on-drag-end="ctl.handleDragEnd($event, $dragData)"> -->
         </div>
 		</div>
 	</div>

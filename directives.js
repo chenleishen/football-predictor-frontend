@@ -13,9 +13,9 @@ exports.dragAndDrop = function() {
   };
 }; 
 
-exports.choosePlayer = function() {
+exports.choosePlayers = function() {
 	return {
-    controller: 'ChoosePlayerController',
-    templateUrl: '/templates/choose_player.html'
+    controller: 'ChoosePlayersController',
+    templateUrl: '/templates/choose_players.html'
   };
 }

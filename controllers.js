@@ -28,10 +28,12 @@ exports.DragAndDropController = function ($scope, $rootScope) {
     };
 
     $scope.team1 = {
+    	name: "none",
     	filled: false,
     	img: "none"
     };
     $scope.team2 = {
+    	name: "none",
     	filled: false,
     	img: "none"
     };
@@ -43,13 +45,14 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 		};
 		team1_container.style.backgroundColor = "white";
 		var new_team = document.createElement("img");
-		new_team.src = "/icons/"+data;
-    	new_team.className += "img-responsive .center-block";
+		new_team.src = "/icons/"+data.team_img;
+    	new_team.className += "img-responsive center-block";
 		team1_container.append(new_team);
 
-		$rootScope.$broadcast('show_player1');
+		$rootScope.$broadcast('show_players1', data.team_name);
 		$scope.team1.filled = true;
-		$scope.team1.img = data;
+		$scope.team1.img = data.team_img;
+		$scope.team1.name = data.team_name;
     }
 
     $scope.appendTeam2 = function(data) {
@@ -59,25 +62,31 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 		};
 		team2_container.style.backgroundColor = "white";
 		var new_team = document.createElement("img");
-		new_team.src = "/icons/"+data;
-    	new_team.className += "img-responsive .center-block";
+		new_team.src = "/icons/"+data.team_img;
+    	new_team.className += "img-responsive center-block";
 		team2_container.append(new_team);
 
-		$rootScope.$broadcast('show_player2');
+		$rootScope.$broadcast('show_players2', data.team_name);
 		$scope.team2.filled = true;
-		$scope.team2.img = data;
+		$scope.team2.img = data.team_img;
+		$scope.team2.name = data.team_name;
     }
 };
 
-exports.ChoosePlayerController = function($scope) {
-	$scope.show_choosePlayer1 = false;
-	$scope.show_choosePlayer2 = false;
+exports.ChoosePlayersController = function($scope) {
+	$scope.show_choosePlayers1 = false;
+	$scope.show_choosePlayers2 = false;
 
-	$scope.$on('show_player1', function (event) {
-        $scope.show_choosePlayer1 = true;
+	$scope.team1_name = "none";
+	$scope.team2_name = "none";
+
+	$scope.$on('show_players1', function (event,team_name) {
+        $scope.show_choosePlayers1 = true;
+		$scope.team1_name = team_name;
     });
 
-    $scope.$on('show_player2', function (event) {
-        $scope.show_choosePlayer2 = true;
+    $scope.$on('show_players2', function (event,team_name) {
+        $scope.show_choosePlayers2 = true;
+        $scope.team2_name = team_name;
     });
 };
