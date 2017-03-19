@@ -22,6 +22,32 @@ exports.NavBarController = function($scope) {
     	"West Bromwich Albion":"WestBromwichAlbion.png",
     	"West Ham United":"WestHamUnited.png"
     };
+
+    $scope.appendTeam1 = function(data) {
+    	console.log(data);
+    	var team1_container = document.getElementById("team1");
+    	while (team1_container.firstChild) {
+		    team1_container.removeChild(team1_container.firstChild);
+		};
+		team1_container.style.backgroundColor = "white";
+		var new_team = document.createElement("img");
+		new_team.src = "/icons/"+data;
+    	new_team.className += "img-responsive .center-block";
+		team1_container.append(new_team);
+    }
+
+    $scope.appendTeam2 = function(data) {
+    	console.log(data);
+    	var team2_container = document.getElementById("team2");
+    	while (team2_container.firstChild) {
+		    team2_container.removeChild(team2_container.firstChild);
+		};
+		team2_container.style.backgroundColor = "white";
+		var new_team = document.createElement("img");
+		new_team.src = "/icons/"+data;
+    	new_team.className += "img-responsive .center-block";
+		team2_container.append(new_team);
+    }
   
    //  setTimeout(function() {
    //  	$scope.$emit('NavBarController');

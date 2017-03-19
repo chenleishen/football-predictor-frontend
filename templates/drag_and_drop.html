@@ -1,7 +1,10 @@
 <div class="row">
 	<div class="col-md-6 center-block grad" style="height: 200px;">
 		<div class="col-xs-6 col-sm-4" style="height: 200px;">
-			<div id="team1" class="team center-block"> 
+			<div id="team1" 
+			     class="team center-block"
+			     on-drag-enter="appendTeam1($dragData)"
+			     drop-container> 
 				+
 			</div>
 		</div>
@@ -9,21 +12,32 @@
 			VS
 		</div>
 		<div class="col-xs-6 col-sm-4" style="height: 200px;">
-			<div id="team2" class="team center-block">
+			<div id="team2" 
+			     class="team center-block"
+			     drop-container
+			     on-drag-enter="appendTeam2($dragData)">
 				+
 			</div>
 		</div>
 	</div>
 </div>
 
-
 <div class="container-fluid" style="padding-top: 50px;">
 	<div class="col-md-10 center-block">
 		<div class="col-md-5ths" ng-repeat="(name,icon) in team_icons">
+		<div drag-container="true"
+  				 drag-data="icon">
+		<!-- <div drag-container="true"
+  				 drag-data="model"
+  				 ng-style="{'background-image': 'url(/icons/{{icon}})'}"> -->
 			<img class="img-responsive .center-block" 
 			     alt="Responsive image" 
 			     ng-src="/icons/{{icon}}" 
-			     style="max-width: 100px; max-height: 100px; margin-bottom: 20px;">
+			     style="max-width: 100px; max-height: 100px; margin-bottom: 20px;"
+			     >
+                 <!-- on-drag-start="ctl.handleDragStart($event, $dragData)"
+                 on-drag-end="ctl.handleDragEnd($event, $dragData)"> -->
+        </div>
 		</div>
 	</div>
 </div>
