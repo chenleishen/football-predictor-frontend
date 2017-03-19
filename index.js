@@ -3,6 +3,7 @@ var directives = require('./directives');
 var services = require('./services');
 global.jQuery = require('jquery');
 var boostrap = require('bootstrap');
+require("angular-ui-bootstrap");
 
 var components = angular.module('football_predictor.components', ['ng']);
 
@@ -30,7 +31,7 @@ for (name in services) {
 	components.factory(name, services[name]);
 }
 
-var app = angular.module('football_predictor', ['football_predictor.components', 'ngRoute', require('angular-drag-drop')]);
+var app = angular.module('football_predictor', ['football_predictor.components', 'ngRoute', require('angular-drag-drop'), 'ui.bootstrap']);
 
 // app.config(function($routeProvider) {
 //   $routeProvider.

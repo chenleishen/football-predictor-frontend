@@ -1,6 +1,10 @@
 exports.NavBarController = function($scope) {
 	console.log("this is nav bar controller");
-    $scope.team_icons = {
+};
+
+exports.DragAndDropController = function ($scope, $rootScope) {
+	console.log("this is drag and drop controller");
+	    $scope.team_icons = {
     	"AFC Bournemouth":"AFCBournemouth.png",
     	"Arsenal":"Arsenal.png",
     	"Burnley":"Burnley.png",
@@ -43,6 +47,7 @@ exports.NavBarController = function($scope) {
     	new_team.className += "img-responsive .center-block";
 		team1_container.append(new_team);
 
+		$rootScope.$broadcast('show_player1');
 		$scope.team1.filled = true;
 		$scope.team1.img = data;
     }
@@ -58,13 +63,21 @@ exports.NavBarController = function($scope) {
     	new_team.className += "img-responsive .center-block";
 		team2_container.append(new_team);
 
+		$rootScope.$broadcast('show_player2');
 		$scope.team2.filled = true;
 		$scope.team2.img = data;
     }
-  
 };
 
-exports.DragAndDropController = function ($scope) {
-	console.log("this is drag and drop controller");
+exports.ChoosePlayerController = function($scope) {
+	$scope.show_choosePlayer1 = false;
+	$scope.show_choosePlayer2 = false;
 
-}
+	$scope.$on('show_player1', function (event) {
+        $scope.show_choosePlayer1 = true;
+    });
+
+    $scope.$on('show_player2', function (event) {
+        $scope.show_choosePlayer2 = true;
+    });
+};

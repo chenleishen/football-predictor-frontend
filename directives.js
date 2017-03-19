@@ -11,4 +11,11 @@ exports.dragAndDrop = function() {
     controller: 'DragAndDropController',
     templateUrl: '/templates/drag_and_drop.html'
   };
-};  
+}; 
+
+exports.choosePlayer = function() {
+	return {
+    controller: 'ChoosePlayerController',
+    templateUrl: '/templates/choose_player.html'
+  };
+}

@@ -168,3 +168,14 @@ body {
         float: left;
     }
 }
+
+.choosePlayer {
+  border-width: 5px;
+  border-color: #24C6DC;
+  border-style: solid; 
+  color: #24C6DC;
+}
+
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+  border-top: none;
+}
