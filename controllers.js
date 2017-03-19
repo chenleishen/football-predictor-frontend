@@ -23,8 +23,16 @@ exports.NavBarController = function($scope) {
     	"West Ham United":"WestHamUnited.png"
     };
 
+    $scope.team1 = {
+    	filled: false,
+    	img: "none"
+    };
+    $scope.team2 = {
+    	filled: false,
+    	img: "none"
+    };
+
     $scope.appendTeam1 = function(data) {
-    	console.log(data);
     	var team1_container = document.getElementById("team1");
     	while (team1_container.firstChild) {
 		    team1_container.removeChild(team1_container.firstChild);
@@ -34,10 +42,12 @@ exports.NavBarController = function($scope) {
 		new_team.src = "/icons/"+data;
     	new_team.className += "img-responsive .center-block";
 		team1_container.append(new_team);
+
+		$scope.team1.filled = true;
+		$scope.team1.img = data;
     }
 
     $scope.appendTeam2 = function(data) {
-    	console.log(data);
     	var team2_container = document.getElementById("team2");
     	while (team2_container.firstChild) {
 		    team2_container.removeChild(team2_container.firstChild);
@@ -47,11 +57,11 @@ exports.NavBarController = function($scope) {
 		new_team.src = "/icons/"+data;
     	new_team.className += "img-responsive .center-block";
 		team2_container.append(new_team);
+
+		$scope.team2.filled = true;
+		$scope.team2.img = data;
     }
   
-   //  setTimeout(function() {
-   //  	$scope.$emit('NavBarController');
-  	// }, 0);
 };
 
 exports.DragAndDropController = function ($scope) {

@@ -3,8 +3,9 @@
 		<div class="col-xs-6 col-sm-4" style="height: 200px;">
 			<div id="team1" 
 			     class="team center-block"
-			     on-drag-enter="appendTeam1($dragData)"
-			     drop-container> 
+			     drop-container
+			     drop-accepts="($dragData!=team1.img) && ($dragData!=team2.img)"
+			     on-drag-enter="appendTeam1($dragData)"> 
 				+
 			</div>
 		</div>
@@ -15,6 +16,7 @@
 			<div id="team2" 
 			     class="team center-block"
 			     drop-container
+			     drop-accepts="($dragData!=team1.img) && ($dragData!=team2.img)"
 			     on-drag-enter="appendTeam2($dragData)">
 				+
 			</div>
