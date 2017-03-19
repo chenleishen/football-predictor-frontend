@@ -1,11 +1,32 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 exports.NavBarController = function($scope) {
 	console.log("this is nav bar controller");
-  // $scope.user = "chenlei";
-
-  // setTimeout(function() {
-  //   $scope.$emit('NavBarController');
-  // }, 0);
+    $scope.team_icons = {
+    	"AFC Bournemouth":"AFCBournemouth.png",
+    	"Arsenal":"Arsenal.png",
+    	"Burnley":"Burnley.png",
+    	"Chelsea":"Chelsea.png",
+    	"Crystal Palace":"CrystalPalace.png",
+    	"Everton":"Everton.png",
+    	"Hull City":"HullCity.png",
+    	"Leicester City":"LeicesterCity.png",
+    	"Liverpool":"Liverpool.png",
+    	"Manchester City":"ManchesterCity.png",
+    	"Manchester United":"ManchesterUnited.png",
+    	"Middlesbrough":"Middlesbrough.png",
+    	"Southampton":"Southampton.png",
+    	"Stoke City":"StokeCity.png",
+    	"Sunderland" : "Sunderland.png",
+    	"Swansea City": "SwanseaCity.png",
+    	"Tottenham Hotspur": "TottenhamHotspur.png",
+    	"Watford":"Watford.png",
+    	"West Bromwich Albion":"WestBromwichAlbion.png",
+    	"West Ham United":"WestHamUnited.png"
+    };
+  
+   //  setTimeout(function() {
+   //  	$scope.$emit('NavBarController');
+  	// }, 0);
 };
 
 exports.DragAndDropController = function ($scope) {

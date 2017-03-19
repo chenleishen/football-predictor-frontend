@@ -1,7 +1,29 @@
-<div class="row" >
+<div class="row">
 	<div class="col-md-6 center-block grad" style="height: 200px;">
-		<div class="col-xs-6 col-sm-4" style="height: 200px;"></div>
-		<div class="col-xs-6 col-sm-4" style="height: 200px;"></div>
-		<div class="col-xs-6 col-sm-4" style="height: 200px;"></div>
+		<div class="col-xs-6 col-sm-4" style="height: 200px;">
+			<div id="team1" class="team center-block"> 
+				+
+			</div>
+		</div>
+		<div id="vs" class="col-xs-6 col-sm-4" style="height: 200px;">
+			VS
+		</div>
+		<div class="col-xs-6 col-sm-4" style="height: 200px;">
+			<div id="team2" class="team center-block">
+				+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid" style="padding-top: 50px;">
+	<div class="col-md-10 center-block">
+		<div class="col-md-5ths" ng-repeat="(name,icon) in team_icons">
+			<img class="img-responsive .center-block" 
+			     alt="Responsive image" 
+			     ng-src="/icons/{{icon}}" 
+			     style="max-width: 100px; max-height: 100px; margin-bottom: 20px;">
+		</div>
 	</div>
 </div>

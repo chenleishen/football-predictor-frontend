@@ -20,6 +20,7 @@
   "dependencies": {
     "angular": "^1.6.3",
     "angular-drag-drop": "^3.1.0",
+    "angular-route": "^1.6.3",
     "angular-ui-bootstrap": "^2.5.0",
     "body-parser": "~1.10.2",
     "bootstrap": "^3.3.7",
