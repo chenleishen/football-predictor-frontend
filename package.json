@@ -19,6 +19,7 @@
   "homepage": "https://github.com/chenleishen/football-predictor-frontend#readme",
   "dependencies": {
     "angular": "^1.6.3",
+    "angular-animate": "^1.6.3",
     "angular-drag-drop": "^3.1.0",
     "angular-route": "^1.6.3",
     "angular-ui-bootstrap": "^2.5.0",
