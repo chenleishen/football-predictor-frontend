@@ -1,10 +1,10 @@
 # Football Score Predictor (frontend)
 
-An app that predicts scores of football match
+An app that predicts scores of football match. This is the frontend of the app, wanna checkout the other half of the project? Go [here](https://github.com/gauravlath07/football-predictor) 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes 
 
 ### Prerequisites
 
@@ -64,7 +64,7 @@ Make sure you have gulp command line tool though
 
 ## Authors
 
-This is a collaboration between Chenlei Shen and Gaurav Lath
+This is a collaboration between [Chenlei Shen](https://github.com/chenleishen) and [Gaurav Lath](https://github.com/gauravlath07)
 
 ## Acknowledgments
 
