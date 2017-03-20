@@ -1,6 +1,6 @@
-# football-predictor-frontend
+# Football Score Predictor (frontend)
 
-An app that predicts the score of a football match
+An app that predicts scores of football match
 
 ## Getting Started
 
@@ -9,10 +9,10 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 For just running the app you will need:
-* [npm
+* npm (oh look, npm wrote [something](http://blog.npmjs.org/post/85484771375/how-to-install-npm) about how to get npm, handy)
 
 For Testing and Developing you will need:
-* [Gulp Command Line Tool (globally)
+* Gulp Command Line Tool (globally)
 
 ```
 npm install gulp-cli --global
