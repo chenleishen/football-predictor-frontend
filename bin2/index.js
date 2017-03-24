@@ -74,7 +74,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
     }
 };
 
-exports.ChoosePlayersController = function($scope) {
+exports.ChoosePlayersController = function($scope, $http) {
 	$scope.show_choosePlayers1 = false;
 	$scope.show_choosePlayers2 = false;
 
@@ -84,11 +84,21 @@ exports.ChoosePlayersController = function($scope) {
 	$scope.$on('show_players1', function (event,team_name) {
         $scope.show_choosePlayers1 = true;
 		$scope.team1_name = team_name;
+        var team_name_underscore = team_name.split(' ').join('_');
+        $http.get('/api/players/'+team_name_underscore).
+            then(function(response){
+                $scope.team1_players = response.data;
+            });
     });
 
     $scope.$on('show_players2', function (event,team_name) {
         $scope.show_choosePlayers2 = true;
         $scope.team2_name = team_name;
+        var team_name_underscore = team_name.split(' ').join('_');
+        $http.get('/api/players/'+team_name_underscore).
+            then(function(response){
+                $scope.team2_players = response.data;
+            });
     });
 };
 },{}],2:[function(require,module,exports){
@@ -117,7 +127,7 @@ exports.choosePlayers = function() {
 (function (global){
 var controllers = require('./controllers');
 var directives = require('./directives');
-var services = require('./services');
+// var services = require('./services');
 global.jQuery = require('jquery');
 var boostrap = require('bootstrap');
 require("angular-ui-bootstrap");
@@ -141,13 +151,13 @@ for (name in controllers) {
 	components.controller(name, controllers[name]);
 }
 
-for (name in directives) {
+for (name in directives) { 
 	components.directive(name, directives[name]);
 }
 
-for (name in services) {
-	components.factory(name, services[name]);
-}
+// for (name in services) {
+// 	components.factory(name, services[name]);
+// }
 
 var app = angular.module('football_predictor', 
 	['football_predictor.components', 'ngRoute', require('angular-drag-drop'), 'ui.bootstrap', 'ngAnimate']);
@@ -169,7 +179,7 @@ app.config(function($routeProvider) {
     });
 });
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./controllers":1,"./directives":2,"./services":25,"angular-animate":5,"angular-drag-drop":6,"angular-ui-bootstrap":8,"bootstrap":11,"jquery":24}],4:[function(require,module,exports){
+},{"./controllers":1,"./directives":2,"angular-animate":5,"angular-drag-drop":6,"angular-ui-bootstrap":8,"bootstrap":11,"jquery":24}],4:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.3
  * (c) 2010-2017 Google, Inc. http://angularjs.org
@@ -58535,7 +58545,5 @@ if ( !noGlobal ) {
 
 return jQuery;
 } );
-
-},{}],25:[function(require,module,exports){
 
 },{}]},{},[3])

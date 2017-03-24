@@ -1,6 +1,6 @@
 var controllers = require('./controllers');
 var directives = require('./directives');
-var services = require('./services');
+// var services = require('./services');
 global.jQuery = require('jquery');
 var boostrap = require('bootstrap');
 require("angular-ui-bootstrap");
@@ -24,13 +24,13 @@ for (name in controllers) {
 	components.controller(name, controllers[name]);
 }
 
-for (name in directives) {
+for (name in directives) { 
 	components.directive(name, directives[name]);
 }
 
-for (name in services) {
-	components.factory(name, services[name]);
-}
+// for (name in services) {
+// 	components.factory(name, services[name]);
+// }
 
 var app = angular.module('football_predictor', 
 	['football_predictor.components', 'ngRoute', require('angular-drag-drop'), 'ui.bootstrap', 'ngAnimate']);

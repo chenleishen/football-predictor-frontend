@@ -73,7 +73,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
     }
 };
 
-exports.ChoosePlayersController = function($scope) {
+exports.ChoosePlayersController = function($scope, $http) {
 	$scope.show_choosePlayers1 = false;
 	$scope.show_choosePlayers2 = false;
 
@@ -83,10 +83,20 @@ exports.ChoosePlayersController = function($scope) {
 	$scope.$on('show_players1', function (event,team_name) {
         $scope.show_choosePlayers1 = true;
 		$scope.team1_name = team_name;
+        var team_name_underscore = team_name.split(' ').join('_');
+        $http.get('/api/players/'+team_name_underscore).
+            then(function(response){
+                $scope.team1_players = response.data;
+            });
     });
 
     $scope.$on('show_players2', function (event,team_name) {
         $scope.show_choosePlayers2 = true;
         $scope.team2_name = team_name;
+        var team_name_underscore = team_name.split(' ').join('_');
+        $http.get('/api/players/'+team_name_underscore).
+            then(function(response){
+                $scope.team2_players = response.data;
+            });
     });
 };

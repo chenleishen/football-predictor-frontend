@@ -1,6 +1,6 @@
-// var express = require('express');
-// var router = express.Router();
-// var path = require('path');
+var express = require('express');
+var router = express.Router();
+var GetPlayer = require('../controller/GetPlayers');
 
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -11,3 +11,6 @@
 // });
 
 // module.exports = router;
+router.get('/players/:team_name', GetPlayer.getPlayers);
+
+module.exports = router;

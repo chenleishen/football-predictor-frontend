@@ -4,25 +4,19 @@
         Choose Players for {{team1_name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open1, 'glyphicon-chevron-right': !status.open1}"></i>
       </uib-accordion-heading>
       <ul class="list-group">
-		  <li class="list-group-item">
-		  	<label><input type="checkbox"> Player 1</label>
-		  </li>
-		  <li class="list-group-item">
-		  	<label><input type="checkbox"> Player 2</label>
-		  </li>
-		  <li class="list-group-item">Morbi leo risus</li>
-		  <li class="list-group-item">Porta ac consectetur ac</li>
-		  <li class="list-group-item">Vestibulum at eros</li>
-		</ul>
+  		  <li class="list-group-item" ng-repeat="player in team1_players">
+  		  	<label><input type="checkbox"> {{player}}</label>
+  		  </li>
+		  </ul>
     </div>
     <div uib-accordion-group is-open="status.open2" class="choosePlayers" ng-show="show_choosePlayers2">
       <uib-accordion-heading>
         Choose Players for {{team2_name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
       </uib-accordion-heading>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Player 1
-        </label>
-      </div>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="player in team2_players">
+          <label><input type="checkbox"> {{player}}</label>
+        </li>
+      </ul>
     </div>
 </uib-accordion>
