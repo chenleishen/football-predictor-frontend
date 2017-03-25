@@ -7,7 +7,7 @@
       <div class="choosePlayers" style="overflow-y: scroll; height:300px;">
         <ul class="list-group">
     		  <li class="list-group-item" ng-repeat="player in team1_players">
-    		  	<label><input type="checkbox"> {{player}}</label>
+    		  	<label><input ng-model="player.selected" ng-disabled="disableSelection1" type="checkbox"> {{player.name}}</label>
     		  </li>
   		  </ul>
       </div>
@@ -24,7 +24,7 @@
         <div class="choosePlayers" style="overflow-y: scroll; height:300px;">
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="player in team2_players">
-              <label><input type="checkbox"> {{player}}</label>
+              <label><input ng-model="player.selected" ng-disabled="disableSelection2" type="checkbox"> {{player.name}}</label>
             </li>
           </ul>
         </div>

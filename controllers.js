@@ -66,7 +66,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
     	new_team.className += "img-responsive center-block";
 		team2_container.append(new_team);
 
-		$rootScope.$broadcast('show_players2', data.team_name);
+		$rootScope.$broadcast('show_players2', data.team_name); 
 		$scope.team2.filled = true;
 		$scope.team2.img = data.team_img;
 		$scope.team2.name = data.team_name;
@@ -74,11 +74,18 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 };
 
 exports.ChoosePlayersController = function($scope, $http) {
+    var MAX_NUM_OF_PLAYERS = 3;
 	$scope.show_choosePlayers1 = false;
 	$scope.show_choosePlayers2 = false;
 
 	$scope.team1_name = "none";
 	$scope.team2_name = "none";
+
+    $scope.team1_players = [];
+    $scope.team2_players = [];
+
+    $scope.disableSelection1 = false;
+    $scope.disableSelection1 = false;
 
 	$scope.$on('show_players1', function (event,team_name) {
         $scope.show_choosePlayers1 = true;
@@ -99,4 +106,27 @@ exports.ChoosePlayersController = function($scope, $http) {
                 $scope.team2_players = response.data;
             });
     });
+
+    $scope.$watch('team1_players', function(players){
+        console.log(players);
+        var selectedPlayers = 0;
+        players.forEach(function(player){
+          selectedPlayers += player.selected ? 1 : 0;
+        })
+        if (selectedPlayers+1 > MAX_NUM_OF_PLAYERS) {
+            $scope.disableSelection1 = true;
+        };
+      }, true); 
+
+    $scope.$watch('team2_players', function(players){
+        console.log(players);
+        var selectedPlayers = 0;
+        players.forEach(function(player){
+          selectedPlayers += player.selected ? 1 : 0;
+        })
+        if (selectedPlayers+1 > MAX_NUM_OF_PLAYERS) {
+            $scope.disableSelection2 = true;
+        };
+      }, true); 
+
 };

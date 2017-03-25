@@ -16,7 +16,7 @@ module.exports.getPlayers = function(req, res) {
         // console.log(response_array);
         response_array.forEach(function(player_data){
         	if(player_data.team == team_name) {
-        		team_players.push(player_data.first_name + " " + player_data.last_name);
+        		team_players.push({"name": player_data.first_name + " " + player_data.last_name});
         	}
         });
         res.send(team_players);
