@@ -49,7 +49,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 		team1_container.style.backgroundColor = "white";
 		var new_team = document.createElement("img");
 		new_team.src = "/icons/"+data.team_img;
-    	new_team.className += "img-responsive center-block";
+    	new_team.className += "img-responsive center-block iconBorder";
 		team1_container.append(new_team);
 
 		$rootScope.$broadcast('show_players1', data.team_name);
@@ -69,7 +69,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 		team2_container.style.backgroundColor = "white";
 		var new_team = document.createElement("img");
 		new_team.src = "/icons/"+data.team_img;
-    	new_team.className += "img-responsive center-block";
+    	new_team.className += "img-responsive center-block iconBorder";
 		team2_container.append(new_team);
 
 		$rootScope.$broadcast('show_players2', data.team_name); 
@@ -80,7 +80,9 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 };
 
 exports.ChoosePlayersController = function($scope, $http) {
-    var MAX_NUM_OF_PLAYERS = 3;
+    // choose maximum number of players that users are allowed to select:
+    var MAX_NUM_OF_PLAYERS = 11;
+
 	$scope.show_choosePlayers1 = false;
 	$scope.show_choosePlayers2 = false;
 

@@ -36,15 +36,14 @@
 
 <div class="container-fluid" style="padding-top: 50px;">
 	<div class="col-md-10 center-block">
-		<div class="col-md-5ths center-block" ng-repeat="(name,icon) in team_icons" drag-container="true"
-  				 drag-data="{team_name: name, team_img: icon}" >
+		<div class="col-md-5ths center-block iconBorder" ng-repeat="(name,icon) in team_icons" drag-container="true"
+  				 drag-data="{team_name: name, team_img: icon}" style="margin:5px; padding: 5px;">
 		<!-- <div drag-container="true"
   				 drag-data="model"
   				 ng-style="{'background-image': 'url(/icons/{{icon}})'}"> -->
 			<img class="img-responsive" 
 			     alt="Responsive image" 
-			     ng-src="/icons/{{icon}}" 
-			     style="max-width: 100px; max-height: 100px; margin-bottom: 20px;">
+			     ng-src="/icons/{{icon}}" >
 		</div>
 	</div>
 </div>
