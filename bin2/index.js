@@ -41,6 +41,9 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 
     $scope.appendTeam1 = function(data) {
     	var team1_container = document.getElementById("team1");
+        if (data.team_name == $scope.team1.name || data.team_name == $scope.team2.name) {
+            return;
+        }
     	while (team1_container.firstChild) {
 		    team1_container.removeChild(team1_container.firstChild);
 		};
@@ -58,6 +61,9 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 
     $scope.appendTeam2 = function(data) {
     	var team2_container = document.getElementById("team2");
+        if (data.team_name == $scope.team1.name || data.team_name == $scope.team2.name) {
+            return;
+        }
     	while (team2_container.firstChild) {
 		    team2_container.removeChild(team2_container.firstChild);
 		};

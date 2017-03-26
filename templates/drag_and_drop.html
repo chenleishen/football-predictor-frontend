@@ -4,7 +4,7 @@
 			<div id="team1" 
 			     class="team center-block"
 			     drop-container
-			     drop-accepts="($dragData.name!=team1.name) && ($dragData.name!=team2.name)"
+			     drop-accepts="($dragData.team_name!=team1.name) && ($dragData.team_name!=team2.name)"
 			     on-drag-enter="appendTeam1($dragData)"> 
 				+
 			</div>
@@ -16,7 +16,7 @@
 			<div id="team2" 
 			     class="team center-block"
 			     drop-container
-			     drop-accepts="($dragData.name!=team1.name) && ($dragData.name!=team2.name)"
+			     drop-accepts="($dragData.team_name!=team1.name) && ($dragData.team_name!=team2.name)"
 			     on-drag-enter="appendTeam2($dragData)">
 				+
 			</div>
@@ -36,17 +36,15 @@
 
 <div class="container-fluid" style="padding-top: 50px;">
 	<div class="col-md-10 center-block">
-		<div class="col-md-5ths" ng-repeat="(name,icon) in team_icons">
-		<div drag-container="true"
-  				 drag-data="{team_name: name, team_img: icon}">
+		<div class="col-md-5ths center-block" ng-repeat="(name,icon) in team_icons" drag-container="true"
+  				 drag-data="{team_name: name, team_img: icon}" >
 		<!-- <div drag-container="true"
   				 drag-data="model"
   				 ng-style="{'background-image': 'url(/icons/{{icon}})'}"> -->
-			<img class="img-responsive .center-block" 
+			<img class="img-responsive" 
 			     alt="Responsive image" 
 			     ng-src="/icons/{{icon}}" 
 			     style="max-width: 100px; max-height: 100px; margin-bottom: 20px;">
-        </div>
 		</div>
 	</div>
 </div>

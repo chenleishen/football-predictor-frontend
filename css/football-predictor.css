@@ -179,3 +179,9 @@ body {
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
   border-top: none;
 }
+
+.iconBorder {
+  border-width: 5px;
+  border-color: #000000;
+  border-style: solid; 
+}
