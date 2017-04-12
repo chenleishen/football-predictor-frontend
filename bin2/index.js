@@ -30,12 +30,10 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 
     $scope.team1 = {
     	name: "none",
-    	filled: false,
     	img: "none"
     };
     $scope.team2 = {
     	name: "none",
-    	filled: false,
     	img: "none"
     };
 
@@ -54,7 +52,6 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 		team1_container.append(new_team);
 
 		$rootScope.$broadcast('show_players1', data.team_name);
-		$scope.team1.filled = true;
 		$scope.team1.img = data.team_img;
 		$scope.team1.name = data.team_name;
     }
@@ -74,7 +71,6 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 		team2_container.append(new_team);
 
 		$rootScope.$broadcast('show_players2', data.team_name); 
-		$scope.team2.filled = true;
 		$scope.team2.img = data.team_img;
 		$scope.team2.name = data.team_name;
     }
@@ -95,6 +91,9 @@ exports.ChoosePlayersController = function($scope, $http) {
 
     $scope.disableSelection1 = false;
     $scope.disableSelection1 = false;
+
+    $scope.team1.filled = false;
+    $scope.team2.filled = false;
 
 	$scope.$on('show_players1', function (event,team_name) {
         $scope.show_choosePlayers1 = true;
@@ -117,24 +116,50 @@ exports.ChoosePlayersController = function($scope, $http) {
     });
 
     $scope.$watch('team1_players', function(players){
-        var selectedPlayers = 0;
+        $scope.selectedPlayers1 = 0;
+        $scope.team1_selected_players = [];
         players.forEach(function(player){
-          selectedPlayers += player.selected ? 1 : 0;
+          $scope.selectedPlayers1 += player.selected ? 1 : 0;
+          $scope.team1_selected_players.push(player.name);
         })
-        if (selectedPlayers+1 > MAX_NUM_OF_PLAYERS) {
+        if ($scope.selectedPlayers1+1 > MAX_NUM_OF_PLAYERS) {
             $scope.disableSelection1 = true;
-        };
+            $scope.team1.filled = true;
+        } else {
+            $scope.disableSelection1 = false;
+            $scope.team1.filled = false;
+        }
       }, true); 
 
     $scope.$watch('team2_players', function(players){
-        var selectedPlayers = 0;
+        $scope.selectedPlayers2 = 0;
+        $scope.team2_selected_players = [];
         players.forEach(function(player){
-          selectedPlayers += player.selected ? 1 : 0;
+          $scope.selectedPlayers2 += player.selected ? 1 : 0;
+          $scope.team2_selected_players.push(player.name);
         })
-        if (selectedPlayers+1 > MAX_NUM_OF_PLAYERS) {
+        if ($scope.selectedPlayers2+1 > MAX_NUM_OF_PLAYERS) {
             $scope.disableSelection2 = true;
-        };
+            $scope.team2.filled = true;
+        } else {
+            $scope.disableSelection2 = false;
+            $scope.team2.filled = false;
+        }
       }, true); 
+
+    $scope.calculateScore = function () {
+        var data = {
+            team1_name: $scope.team1_name,
+            team1_players: $scope.team1_selected_players,
+            team2_name: $scope.team2_name,
+            team2_players: $scope.team2_selected_players
+        };
+        console.log(data);
+        $http.post('http://127.0.0.1:8000/get_score', data).
+        then(function(response){
+            $scope.score = response.data.score;
+        });
+    }
 
 };
 },{}],2:[function(require,module,exports){

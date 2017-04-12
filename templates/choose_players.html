@@ -2,12 +2,13 @@
   <uib-accordion close-others="true">
     <div uib-accordion-group is-open="status.open1" class="choosePlayers" ng-show="show_choosePlayers1">
       <uib-accordion-heading>
-        Choose Players for {{team1_name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open1, 'glyphicon-chevron-right': !status.open1}"></i>
+        <span style="color:black;"> Choose Players for {{team1_name}} </span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open1, 'glyphicon-chevron-right': !status.open1}"></i>
       </uib-accordion-heading>
+      <h5>players selected: {{selectedPlayers1}}</h5>
       <div class="choosePlayers" style="overflow-y: scroll; height:300px;">
         <ul class="list-group">
     		  <li class="list-group-item" ng-repeat="player in team1_players">
-    		  	<label><input ng-model="player.selected" ng-disabled="disableSelection1" type="checkbox"> {{player.name}} <span style="color:green;">(minutes played: {{player.minutes_played}}) min</span></label>
+    		  	<label><input ng-model="player.selected" ng-disabled="disableSelection1 && !player.selected" type="checkbox"> <span style="color:black;">{{player.name}}</span> <span style="">(minutes played: {{player.minutes_played}} min)</span></label>
     		  </li>
   		  </ul>
       </div>
@@ -19,15 +20,26 @@
   <uib-accordion close-others="true">
       <div uib-accordion-group is-open="status.open2" class="choosePlayers" ng-show="show_choosePlayers2">
         <uib-accordion-heading>
-          Choose Players for {{team2_name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
+          <span style="color:black;">Choose Players for {{team2_name}}</span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
         </uib-accordion-heading>
+        <h5>players selected: {{selectedPlayers2}}</h5>
         <div class="choosePlayers" style="overflow-y: scroll; height:300px;">
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="player in team2_players">
-              <label><input ng-model="player.selected" ng-disabled="disableSelection2" type="checkbox"> {{player.name}} <span style="color:green;">(minutes played: {{player.minutes_played}}) min</span></label>
+              <label><input ng-model="player.selected" ng-disabled="disableSelection2 && !player.selected" type="checkbox"> <span style="color:black;">{{player.name}}</span> <span style="">(minutes played: {{player.minutes_played}} min)</span></label>
             </li>
           </ul>
         </div>
       </div>
   </uib-accordion>
+</div>
+
+<div class="col-md-6 center-block" ng-show="team1.filled && team2.filled" style="text-align: center;">
+  <button type="button" class="btn btn-default btn-lg" style="min-width: 300px;" ng-click="calculateScore()">
+    Calculate Score
+  </button>
+</div>
+
+<div id="score" ng-if="score" class="col-md-2 center-block" style="text-align: center; margin-top: 20px;" >
+  {{score}}
 </div>
