@@ -120,7 +120,9 @@ exports.ChoosePlayersController = function($scope, $http) {
         $scope.team1_selected_players = [];
         players.forEach(function(player){
           $scope.selectedPlayers1 += player.selected ? 1 : 0;
-          $scope.team1_selected_players.push(player.name);
+          if (player.selected) {
+            $scope.team1_selected_players.push(player.name);
+          }
         })
         if ($scope.selectedPlayers1+1 > MAX_NUM_OF_PLAYERS) {
             $scope.disableSelection1 = true;
@@ -136,7 +138,9 @@ exports.ChoosePlayersController = function($scope, $http) {
         $scope.team2_selected_players = [];
         players.forEach(function(player){
           $scope.selectedPlayers2 += player.selected ? 1 : 0;
-          $scope.team2_selected_players.push(player.name);
+          if (player.selected) {
+            $scope.team2_selected_players.push(player.name);
+          }
         })
         if ($scope.selectedPlayers2+1 > MAX_NUM_OF_PLAYERS) {
             $scope.disableSelection2 = true;
