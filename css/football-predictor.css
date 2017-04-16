@@ -49,7 +49,7 @@ body {
 }
 
 #football {
-  color: #514A9D;
+  color: #5691c8;
   font-weight: bold;
 }
 
@@ -95,14 +95,22 @@ body {
   float:none
 }
 
-.grad {
-  background: #514A9D; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient( #514A9D, #24C6DC); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#514A9D, #24C6DC); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient( #514A9D, #24C6DC); /* For Firefox 3.6 to 15 */
-  background: linear-gradient( #514A9D, #24C6DC); /* Standard syntax */
-}
+/*.grad {
+  background: #514A9D; /* For browsers that do not support gradients 
+  background: -webkit-linear-gradient( #514A9D, #24C6DC); /* For Safari 5.1 to 6.0 
+  background: -o-linear-gradient(#514A9D, #24C6DC); /* For Opera 11.1 to 12.0 
+  background: -moz-linear-gradient( #514A9D, #24C6DC); /* For Firefox 3.6 to 15 
+  background: linear-gradient( #514A9D, #24C6DC); /* Standard syntax 
+}*/
 /*https://uigradients.com/#AquaMarine*/
+
+.grad {
+  background: #457fca; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient( #457fca, #5691c8); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#457fca, #5691c8); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient( #457fca, #5691c8); /* For Firefox 3.6 to 15 */
+  background: linear-gradient( #457fca, #5691c8); /* Standard syntax */
+}
 
 .team {
   border-width: 5px;
@@ -171,9 +179,9 @@ body {
 
 .choosePlayers {
   border-width: 5px;
-  border-color: #24C6DC;
+  border-color: #5691c8;
   border-style: solid; 
-  color: #24C6DC;
+  color: #5691c8;
 }
 
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {

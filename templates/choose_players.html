@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <uib-accordion close-others="true">
+  <uib-accordion>
     <div uib-accordion-group is-open="status.open1" class="choosePlayers" ng-show="show_choosePlayers1">
       <uib-accordion-heading>
         <span style="color:black;"> Choose Players for {{team1_name}} </span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open1, 'glyphicon-chevron-right': !status.open1}"></i>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="col-md-6">
-  <uib-accordion close-others="true">
+  <uib-accordion>
       <div uib-accordion-group is-open="status.open2" class="choosePlayers" ng-show="show_choosePlayers2">
         <uib-accordion-heading>
           <span style="color:black;">Choose Players for {{team2_name}}</span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
@@ -34,12 +34,12 @@
   </uib-accordion>
 </div>
 
-<div class="col-md-6 center-block" ng-show="team1.filled && team2.filled" style="text-align: center;">
+<div class="col-md-6 col-md-offset-3" ng-if="team1.filled && team2.filled" style="text-align: center; display: inline-block;">
   <button type="button" class="btn btn-default btn-lg" style="min-width: 300px;" ng-click="calculateScore()">
     Calculate Score
   </button>
 </div>
 
-<div id="score" ng-if="score" class="col-md-2 center-block" style="text-align: center; margin-top: 20px;" >
+<div id="score" ng-if="scoreCalculated" class="col-md-6 col-md-offset-3" style="text-align: center; margin-top: 20px;" >
   {{score}}
 </div>

@@ -79,6 +79,11 @@ exports.ChoosePlayersController = function($scope, $http) {
     // choose maximum number of players that users are allowed to select:
     var MAX_NUM_OF_PLAYERS = 11;
 
+    $scope.status = {
+        open1 : false,
+        open2: false
+    }
+
 	$scope.show_choosePlayers1 = false;
 	$scope.show_choosePlayers2 = false;
 
@@ -93,6 +98,8 @@ exports.ChoosePlayersController = function($scope, $http) {
 
     $scope.team1.filled = false;
     $scope.team2.filled = false;
+
+    $scope.scoreCalculated = false;
 
 	$scope.$on('show_players1', function (event,team_name) {
         $scope.show_choosePlayers1 = true;
@@ -129,6 +136,7 @@ exports.ChoosePlayersController = function($scope, $http) {
         } else {
             $scope.disableSelection1 = false;
             $scope.team1.filled = false;
+            $scope.scoreCalculated = false;
         }
       }, true); 
 
@@ -147,6 +155,7 @@ exports.ChoosePlayersController = function($scope, $http) {
         } else {
             $scope.disableSelection2 = false;
             $scope.team2.filled = false;
+            $scope.scoreCalculated = false;
         }
       }, true); 
 
@@ -161,6 +170,7 @@ exports.ChoosePlayersController = function($scope, $http) {
         $http.post('http://127.0.0.1:8000/get_score', data).
         then(function(response){
             $scope.score = response.data.score;
+            $scope.scoreCalculated = true;
         });
     }
 
