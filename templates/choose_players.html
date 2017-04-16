@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <uib-accordion>
-    <div uib-accordion-group is-open="status.open1" class="choosePlayers" ng-show="show_choosePlayers1">
+    <div uib-accordion-group is-open="status.open1" class="choosePlayers" ng-if="show_choosePlayers1">
       <uib-accordion-heading>
         <span style="color:black;"> Choose Players for {{team1_name}} </span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open1, 'glyphicon-chevron-right': !status.open1}"></i>
       </uib-accordion-heading>
@@ -18,7 +18,7 @@
 
 <div class="col-md-6">
   <uib-accordion>
-      <div uib-accordion-group is-open="status.open2" class="choosePlayers" ng-show="show_choosePlayers2">
+      <div uib-accordion-group is-open="status.open2" class="choosePlayers" ng-if="show_choosePlayers2">
         <uib-accordion-heading>
           <span style="color:black;">Choose Players for {{team2_name}}</span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
         </uib-accordion-heading>
