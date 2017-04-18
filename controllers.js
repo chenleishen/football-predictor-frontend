@@ -77,7 +77,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 
 exports.ChoosePlayersController = function($scope, $http) {
     // choose maximum number of players that users are allowed to select:
-    var MAX_NUM_OF_PLAYERS = 11;
+    var MAX_NUM_OF_PLAYERS = 2;
 
     $scope.status = {
         open1 : false,
@@ -172,6 +172,18 @@ exports.ChoosePlayersController = function($scope, $http) {
             $scope.score = response.data.score;
             $scope.scoreCalculated = true;
         });
+    }
+    $scope.reset = function () {
+        var team1_container = document.getElementById("team1");
+        while (team1_container.firstChild) {
+            team1_container.removeChild(team1_container.firstChild);
+        };
+        var team2_container = document.getElementById("team2");
+        while (team2_container.firstChild) {
+            team2_container.removeChild(team2_container.firstChild);
+        };
+        $scope.show_choosePlayers1 = false;
+        $scope.show_choosePlayers2 = false;
     }
 
 };
