@@ -77,7 +77,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 
 exports.ChoosePlayersController = function($scope, $http) {
     // choose maximum number of players that users are allowed to select:
-    var MAX_NUM_OF_PLAYERS = 2;
+    var MAX_NUM_OF_PLAYERS = 1;
 
     $scope.status = {
         open1 : false,
@@ -173,6 +173,20 @@ exports.ChoosePlayersController = function($scope, $http) {
             $scope.scoreCalculated = true;
         });
     }
+
+    $scope.getPlayers = function () {
+        console.log("shit works");
+        var data = {
+            "team1_name": "Manchester United",
+            "team2_name": "Manchester City"
+        };
+        $http.post('http://127.0.0.1:8000/get_defaultplayers', data).
+        then(function(response){
+            $scope.playerssss = response.data.defaultplayers;
+            console.log($scope.playerssss);
+        });
+    }
+
     $scope.reset = function () {
         var team1_container = document.getElementById("team1");
         while (team1_container.firstChild) {
