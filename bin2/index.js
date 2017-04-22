@@ -78,7 +78,7 @@ exports.DragAndDropController = function ($scope, $rootScope) {
 
 exports.ChoosePlayersController = function($scope, $http) {
     // choose maximum number of players that users are allowed to select:
-    var MAX_NUM_OF_PLAYERS = 1;
+    var MAX_NUM_OF_PLAYERS = 11;
 
     $scope.status = {
         open1 : false,
