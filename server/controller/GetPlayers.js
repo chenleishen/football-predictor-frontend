@@ -22,8 +22,9 @@ module.exports.getPlayers = function (req, res) {
     latest_player_data.forEach(function(player_data){
       if(player_data.team == team_name) {
         team_players.push(
-                {"name": player_data.web_name,
-                 "minutes_played": player_data.minutes_played
+                {"display_name": player_data.first_name+' '+player_data.web_name,
+                 "minutes_played": player_data.minutes_played,
+                 "last_name": player_data.last_name
                 });
       }
     });

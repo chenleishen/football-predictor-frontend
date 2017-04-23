@@ -111,9 +111,34 @@ exports.ChoosePlayersController = function($scope, $http) {
 		$scope.team1_name = team_name;
         var team_name_underscore = team_name.split(' ').join('_');
         $http.get('/api/players/'+team_name_underscore).
-            then(function(response){
-                $scope.team1_players = response.data;
-            });
+            then(function(response1){
+                if ($scope.defaultPlayers) {
+                    $scope.team1_players = response1.data;
+                    var defaultPlayers = $scope.defaultPlayers[team_name].split(";");
+                    $scope.team1_players.forEach(function(player){
+                        defaultPlayers.forEach(function(dp){
+                            if (dp == player.last_name) {
+                                player.selected = true;
+                            }
+                        });
+                    });
+                } else {
+                    $http.get('http://127.0.0.1:9612/get_defaultplayers').
+                        then(function(response2){
+                            $scope.team1_players = response1.data;
+                            $scope.defaultPlayers = response2.data.defaultplayers;
+                            var defaultPlayers = $scope.defaultPlayers[team_name].split(";");
+                            console.log(defaultPlayers);
+                            $scope.team1_players.forEach(function(player){
+                                defaultPlayers.forEach(function(dp){
+                                    if (dp == player.last_name) {
+                                        player.selected = true;
+                                    }
+                                });
+                            });
+                        });
+                    }
+                });
     });
 
     $scope.$on('show_players2', function (event,team_name) {
@@ -121,9 +146,34 @@ exports.ChoosePlayersController = function($scope, $http) {
         $scope.team2_name = team_name;
         var team_name_underscore = team_name.split(' ').join('_');
         $http.get('/api/players/'+team_name_underscore).
-            then(function(response){
-                $scope.team2_players = response.data;
-            });
+            then(function(response1){
+                if ($scope.defaultPlayers) {
+                    $scope.team2_players = response1.data;
+                    var defaultPlayers = $scope.defaultPlayers[team_name].split(";");
+                    $scope.team2_players.forEach(function(player){
+                        defaultPlayers.forEach(function(dp){
+                            if (dp == player.last_name) {
+                                player.selected = true;
+                            }
+                        });
+                    });
+                } else {
+                    $http.get('http://127.0.0.1:9612/get_defaultplayers').
+                        then(function(response2){
+                            $scope.team2_players = response1.data;
+                            $scope.defaultPlayers = response2.data.defaultplayers;
+                            var defaultPlayers = $scope.defaultPlayers[team_name].split(";");
+                            console.log(defaultPlayers);
+                            $scope.team2_players.forEach(function(player){
+                                defaultPlayers.forEach(function(dp){
+                                    if (dp == player.last_name) {
+                                        player.selected = true;
+                                    }
+                                });
+                            });
+                        });
+                    }
+                });
     });
 
     $scope.$watch('team1_players', function(players){
