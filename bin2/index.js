@@ -115,6 +115,7 @@ exports.ChoosePlayersController = function($scope, $http) {
                 if ($scope.defaultPlayers) {
                     $scope.team1_players = response1.data;
                     var defaultPlayers = $scope.defaultPlayers[team_name].split(";");
+                    console.log(defaultPlayers);
                     $scope.team1_players.forEach(function(player){
                         defaultPlayers.forEach(function(dp){
                             if (dp == player.last_name) {
@@ -150,6 +151,7 @@ exports.ChoosePlayersController = function($scope, $http) {
                 if ($scope.defaultPlayers) {
                     $scope.team2_players = response1.data;
                     var defaultPlayers = $scope.defaultPlayers[team_name].split(";");
+                    console.log(defaultPlayers);
                     $scope.team2_players.forEach(function(player){
                         defaultPlayers.forEach(function(dp){
                             if (dp == player.last_name) {
