@@ -1,10 +1,14 @@
-exports.NavBarController = function($scope) {
+exports.NavBarController = function($scope, $http) {
 	console.log("this is nav bar controller");
+    $http.get('/api/first_load').
+        then(function(response){
+            console.log(response.data);
+        });
 };
 
 exports.DragAndDropController = function ($scope, $rootScope) {
 	console.log("this is drag and drop controller");
-	    $scope.team_icons = {
+    $scope.team_icons = {
     	"AFC Bournemouth":"AFCBournemouth.png",
     	"Arsenal":"Arsenal.png",
     	"Burnley":"Burnley.png",
