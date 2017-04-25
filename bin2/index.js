@@ -168,7 +168,7 @@ exports.ChoosePlayersController = function($scope, $http) {
             team2_players: $scope.team2_selected_players
         };
         console.log(data);
-        $http.post('http://35.166.200.54:9612/get_score', data).
+        $http.post('http://54.245.215.12:9612/get_score', data).
         then(function(response){
             $scope.score = response.data.score;
             $scope.scoreCalculated = true;
