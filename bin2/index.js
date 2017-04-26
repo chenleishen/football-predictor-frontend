@@ -5,6 +5,10 @@ exports.NavBarController = function($scope, $http) {
         then(function(response){
             console.log(response.data);
         });
+    $http.get('/api/getDefaultPlayers').
+        then(function(response){
+            console.log(response.data);
+        });
 };
 
 exports.DragAndDropController = function ($scope, $rootScope) {

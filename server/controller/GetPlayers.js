@@ -1,6 +1,11 @@
 var elastic = require('../config/elasticsearch');
 var elasticClient = elastic.getEsClient();
 var latest_player_data = [];
+var csv = require('csv');
+const fs = require('fs');
+var path = require('path');
+var inputFile=path.join(__dirname, '../../bin/main-11.csv');
+var allDefaultPlayers = {};
 
 module.exports.getAllPlayers = function(req, res) {
   console.log('first load');
@@ -14,6 +19,19 @@ module.exports.getAllPlayers = function(req, res) {
     });
 };
 
+module.exports.getDefaultPlayers = function(req, res) {
+  console.log('get default');
+  fs.readFile(inputFile, 'utf8', function (err, data) {
+    csv.parse(data, function(err, data){
+      csv.transform(data, function(data){
+        allDefaultPlayers[data[0]]=data[1].split(';');
+      }, function(err, data){
+        res.send('successful');
+      });
+    });
+  });
+};
+
 module.exports.getPlayers = function (req, res) {
   var team_name = req.params.team_name.split('_').join(' ');
   var team_players = [];
@@ -22,8 +40,10 @@ module.exports.getPlayers = function (req, res) {
     latest_player_data.forEach(function(player_data){
       if(player_data.team == team_name) {
         team_players.push(
-                {"name": player_data.web_name,
-                 "minutes_played": player_data.minutes_played
+                {"name": player_data.first_name+' '+player_data.web_name,
+                 "minutes_played": player_data.minutes_played,
+                 "web_name": player_data.web_name,
+                 "selected": false
                 });
       }
     });
@@ -37,14 +57,18 @@ module.exports.getPlayers = function (req, res) {
           }
           return 0;
         });
-    }
+
+        if (Object.keys(allDefaultPlayers).length>0) {
+          var defaults = allDefaultPlayers[team_name];
+          team_players.forEach(function(player){
+            defaults.forEach(function(dp){
+              if (dp.toString() === player['web_name']){
+                player['selected'] = true;
+              } 
+            });
+          });
+        };
+    };
     res.send(team_players);
   }
 }
-
-// example
-// var numbers = [4, 2, 5, 1, 3];
-// numbers.sort(function(a, b) {
-//   return a - b;
-// });
-// console.log(numbers);
