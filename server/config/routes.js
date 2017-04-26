@@ -11,6 +11,8 @@ var GetPlayer = require('../controller/GetPlayers');
 // });
 
 // module.exports = router;
+router.get('/first_load', GetPlayer.getAllPlayers);
 router.get('/players/:team_name', GetPlayer.getPlayers);
+router.get('/getDefaultPlayers', GetPlayer.getDefaultPlayers);
 
 module.exports = router;
