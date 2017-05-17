@@ -1,4 +1,25 @@
+    <div class="col-md-12">
+    <div style="text-align: center;">
+      <button id="myBtn">Instructions</button>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>How to use ?</h2>
+        <ul>
+        <li>Step 1: Drag your teams to the box. Home team on the left and away on the right !</li>
+        <li>Step 2: Choose the main-11 squads using the dropdowns. The previous games main-11 has been preselcted for you.</li>
+        <li>Step 3:Click on calculate score :) </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+
+
 <div class="col-md-6">
+<br>
   <uib-accordion>
     <div uib-accordion-group is-open="status.open1" class="choosePlayers" ng-if="show_choosePlayers1">
       <uib-accordion-heading>
@@ -17,6 +38,7 @@
 </div>
 
 <div class="col-md-6">
+<br>
   <uib-accordion>
       <div uib-accordion-group is-open="status.open2" class="choosePlayers" ng-if="show_choosePlayers2">
         <uib-accordion-heading>
@@ -39,6 +61,7 @@
     Calculate Score
   </button>
 </div>
+
 
 
 <div id="score" ng-if="scoreCalculated" class="col-md-12" style="text-align: center; margin-top: 20px;" >
